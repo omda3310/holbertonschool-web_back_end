@@ -9,7 +9,7 @@ def status_log(n_collection, var=None):
     if var:
         number_logs = n_collection.count_documents({"method": var})
         print("\tmethod {}: {}".format(var, number_logs))
-        return
+        break
     number_logs = n_collection.count_documents({})
     print("{} logs".format(number_logs))
     print("Methods:")
