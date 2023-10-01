@@ -6,7 +6,7 @@ Methods = ["GET", "POST", "PUT", "PATCH", "DELETE"]
 
 if __name__ == "__main__":
     """Connect to database"""
-    clt = MongoClient("mongodb://127.0.0.1:27017")
+    clt = MongoClient('mongodb://127.0.0.1:27017')
     n_collection = clt.logs.nginx
     number_logs = n_collection.count_documents({})
     print("{} logs".format(number_logs))
@@ -16,8 +16,3 @@ if __name__ == "__main__":
         print("\tmethod {}: {}".format(method, number_logs))
     cheked_status = n_collection.count_documents({"method": "GET", "path": "/status"})
     print("{} status check".format(cheked_status))
-
-    
-
-
-
