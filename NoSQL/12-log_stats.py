@@ -7,7 +7,7 @@ Methods = ["GET", "POST", "PUT", "PATCH", "DELETE"]
 def status_log(n_collection, var=None):
     """a Python script that provides some stats about Nginx logs stored in MongoDB"""
     if var:
-        number_logs = n_collection.count_documents({"method", var})
+        number_logs = n_collection.count_documents({"method": var})
         print("\tmethod {}: {}".format(var, number_logs))
         return
     number_logs = n_collection.count_documents({})
