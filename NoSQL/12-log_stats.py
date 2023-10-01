@@ -8,7 +8,7 @@ if __name__ == __main__:
     """Connect to database"""
     clt = MongoClient("mongodb://127.0.0.1:27017")
     collection = clt.logs.nginx
-    number_logs = collection.count_documents()
+    number_logs = collection.count_documents({})
     print("{} logs".format(number_logs))
     print("Methods:")
     for method in Methods:
