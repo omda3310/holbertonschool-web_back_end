@@ -13,11 +13,11 @@ if __name__ == "__main__":
     print("Methods:")
     for method in Methods:
         if method == None:
-            print("\tmethod {GET}: 0")
-            print("\tmethod {POST}: 0")
-            print("\tmethod {PUT}: 0")
-            print("\tmethod {PATCH}}: 0")
-            print("\tmethod {DELETE}: 0")
+            print("\tmethod GET: 0")
+            print("\tmethod POST: 0")
+            print("\tmethod PUT: 0")
+            print("\tmethod PATCH: 0")
+            print("\tmethod DELETE: 0")
             print("0 status check")
             return
         number_logs = n_collection.count_documents({"method": method})
