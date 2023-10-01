@@ -4,7 +4,7 @@ from pymongo import MongoClient
 Methods = ["GET", "POST", "PUT", "PATCH", "DELETE"]
 
 
-if __name__ == __main__:
+if __name__ == "__main__":
     """Connect to database"""
     clt = MongoClient("mongodb://127.0.0.1:27017")
     n_collection = clt.logs.nginx
