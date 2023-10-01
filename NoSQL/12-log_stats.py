@@ -12,7 +12,7 @@ if __name__ == __main__:
     print("{} logs".format(number_logs))
     print("Methods:")
     for method in Methods:
-        number_logs = collection.count_documents("methods": method)
+        number_logs = collection.count_documents("method": method)
         print("\tmethod {}: {}".format(method, number_logs))
     cheked_status = collection.count_documents("method": "GET", "path": "/status")
     print("{ status check}".format(cheked_status))
