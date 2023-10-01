@@ -14,7 +14,7 @@ if __name__ == "__main__":
     for method in Methods:
         number_logs = n_collection.count_documents({"method": method})
         print("\tmethod {}: {}".format(method, number_logs))
-    cheked_status = n_collection.count_documents({"method": "GET"}, {"path": "/status"})
+    cheked_status = n_collection.count_documents({"method": "GET", "path": "/status"})
     print("{ status check}".format(cheked_status))
 
     
