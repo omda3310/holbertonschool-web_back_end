@@ -9,7 +9,7 @@ def status_log(n_collection, var=None):
     if var:
         number_logs = n_collection.count_documents({"method": var})
         print("\tmethod {}: {}".format(var, number_logs))
-        break
+        return
     number_logs = n_collection.count_documents({})
     print("{} logs".format(number_logs))
     print("Methods:")
@@ -21,7 +21,7 @@ def status_log(n_collection, var=None):
     
     
     if __name__ == "__main__":
-    """Connect to database"""
-    clt = MongoClient('mongodb://127.0.0.1:27017')
-    n_collection = clt.logs.nginx
-    status_log(n_collection)
+        """Connect to database"""
+        clt = MongoClient('mongodb://127.0.0.1:27017')
+        n_collection = clt.logs.nginx
+        status_log(n_collection)
