@@ -4,12 +4,8 @@ from pymongo import MongoClient
 Methods = ["GET", "POST", "PUT", "PATCH", "DELETE"]
 
 
-def status_log(nginx_collection, var=None):
+def status_log(nginx_collection):
     """a Python script that provides some stats about Nginx logs stored in MongoDB"""
-    if var:
-        number_logs = nginx_collection.count_documents({"method": var})
-        print(f'\tmethod {var}: {number_logs}')
-        return
     number_logs = nginx_collection.count_documents({})
     print(f'{number_logs} logs')
     print("Methods:")
