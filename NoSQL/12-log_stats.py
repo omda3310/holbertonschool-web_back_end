@@ -20,8 +20,8 @@ def status_log(nginx_collection, var=None):
     print(f'{cheked_status} status check')
     
     
-    if __name__ == "__main__":
-        """Connect to database"""
-        clt = MongoClient('mongodb://127.0.0.1:27017')
-        nginx_collection = clt.logs.nginx
-        status_log(nginx_collection)
+if __name__ == "__main__":
+    """Connect to database"""
+    clt = MongoClient('mongodb://127.0.0.1:27017')
+    nginx_collection = clt.logs.nginx
+    status_log(nginx_collection)
