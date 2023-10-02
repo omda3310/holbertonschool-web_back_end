@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
 """A Python script that provides some stats about Nginx logs stored in MongoDB"""
 from pymongo import MongoClient
-Methods = ["GET", "POST", "PUT", "PATCH", "DELETE"]
 
 
 if __name__ == '__main__':
     """Connect to database"""
-    clt = MongoClient('mongodb://127.0.0.1:27017')
+    clt = MongoClient()
     nginx_collection = clt.logs.nginx
     """a Python script that provides some stats about Nginx logs stored in MongoDB"""
     number_logs = nginx_collection.count_documents({})
     print(f'{number_logs} logs')
+
+    Methods = ["GET", "POST", "PUT", "PATCH", "DELETE"]
     print("Methods:")
     for method in Methods:
         number_logs_method = nginx_collection.count_documents({"method": method})
