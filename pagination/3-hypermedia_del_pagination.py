@@ -28,7 +28,7 @@ class Server:
 
         return self.__dataset
 
-    def indexed_dataset(self) -> dict[int, List]:
+    def indexed_dataset(self) -> Dict[int, List]:
         """Dataset indexed by sorting position, starting at 0
         """
         if self.__indexed_dataset is None:
@@ -40,25 +40,24 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> dict:
-            '''
-            The goal here is that if between two queries, certain rows are
-            removed from the dataset, the user does not miss items from
-            dataset when changing page
-            '''
-            indx_dataset = self.indexed_dataset()
-            assert (index is None or (0 <= index < len(indx_dataset)))
-            if index is None:
-                index = 0
-            next_index = index + page_size
-            data_list = []
-            for key in range(index, next_index):
-                if key in indx_dataset:
-                    data_list.append(indx_dataset[key])
+        '''
+        The goal here is that if between two queries, certain rows are
+        removed from the dataset, the user does not miss items from
+        dataset when changing page
+        '''
+        indx_dataset = self.indexed_dataset()
+        assert (index is None or (0 <= index < len(indx_dataset)))
+        if index is None:
+            index = 0
+        next_index = index + page_size
+        data_list = []
+        for key in range(index, next_index):
+            if key in indx_dataset:
+                data_list.append(indx_dataset[key])
 
-            return {
+        return {
                 'index': index,
                 'next_index': next_index,
                 'page_size': page_size,
                 'data': data_list
             }
-                
