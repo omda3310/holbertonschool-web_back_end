@@ -37,7 +37,7 @@ class Server:
         assert isinstance(page_size, int) and page > 0
         dataset = self.dataset()
         number_pages = math.ceil(len(dataset) / page_size)
-    
+
         if page > number_pages:
             return []
         indexes = index_range(page=page, page_size=page_size)
