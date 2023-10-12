@@ -46,6 +46,5 @@ export const listOfStudents = [student1, student2, student3, student4, student5]
 
 console.log(listOfStudents);
 
-const listPrinted = listOfStudents.map(
-  (student) => student.fullStudentDescription);
+const listPrinted = listOfStudents.map(student => student.fullStudentDescription);
 console.log(listPrinted);
