@@ -4,13 +4,13 @@ export default class HolbertonCourse {
       TypeError: 'name must be a string';
     }
     if (!(length instanceof Number)) {
-      TypeError: 'length must be a number';
+      throw TypeError('length must be a number');
     }
     if (!(students instanceof Array)) {
-      TypeError: 'students must be an array of strings';
+      throw TypeError('students must be an array of strings');
     }
     if (!students.every(std => !(std instanceof String))) {
-      TypeError: 'students must be an array of strings';
+      throw TypeError('students must be an array of strings');
     }
 
     this._name = name;
@@ -23,7 +23,7 @@ export default class HolbertonCourse {
   }
   /* stter name */
   set name(value) {
-    if (!(value instanceof String)) TypeError: 'name must be a string';
+    if (!(value instanceof String)) throw TypeError('name must be a string');
     this._name = value;
   }
 
@@ -33,7 +33,7 @@ export default class HolbertonCourse {
   }
   /* stter lenght */
   set length(value) {
-    if (!(value instanceof Number)) TypeError: 'length must be a number';
+    if (!(value instanceof Number)) throw TypeError('length must be a number');
     this._lenght = value;
   }
 
@@ -43,8 +43,8 @@ export default class HolbertonCourse {
   }
   /* setter students */
   set students(value) {
-    if (!(value instanceof Array)) TypeError: 'students must be an array of numbers';
-    if (!(value.every(std => std instanceof String))) TypeError: 'students must be an array of numbers';
+    if (!(value instanceof Array)) throw TypeError('students must be an array of numbers');
+    if (!(value.every(std => std instanceof String))) throw TypeError('students must be an array of numbers');
     this._students = value;
   }
 }
