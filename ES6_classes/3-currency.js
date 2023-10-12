@@ -8,7 +8,7 @@ export default class Currency {
 
   /* getter code */
   get code() {
-    return this._name;
+    return this._code;
   }
   /* stter code */
 
