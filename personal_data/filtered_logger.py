@@ -15,7 +15,7 @@ message: a string representing the log line
 separator: a string representing by which character is separating all fields in the log line (message)
 """
 
-for f in fields:
-  message = re.sub(rf"{f}=.*?{separator}", f"{f}={redaction}{separator}", message)
-return message
+  for f in fields:
+    message = re.sub(rf"{f}=.*?{separator}", f"{f}={redaction}{separator}", message)
+  return message
   
