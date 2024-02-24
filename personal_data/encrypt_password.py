@@ -7,11 +7,13 @@ def hash_password(password: str) -> bytes:
     """
     Expect one string argument and returns a byte string.
     """
-    return bcrypt.hashpw(password.encode(), bcrypt.gensalt())
+    pw_encoded = password.encode('utf-8')
+    return bcrypt.hashpw(pw_encoded, bcrypt.gensalt())
 
 
 def is_valid(hashed_password: bytes, password: str) -> bool:
     """
     validate that the provided password matches the hashed password
     """"
-    return bcrypt.checkpw(password.encode('utf-8'), hashed_password)
+    pw_encoded = password.encode('utf-8')
+    return bcrypt.checkpw(pw_encoded, hashed_password)
