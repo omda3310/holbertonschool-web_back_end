@@ -76,3 +76,31 @@ def get_db() -> mysql.connector.connection.MySQLConnection:
         database=os.getenv("PERSONAL_DATA_DB_NAME")
     )
     return connx
+
+
+def main():
+    """
+    Obtain a database connection using get_db and retrieve
+    all rows in the users table and display each row
+    """
+    data = get_db()
+    cursor = data.cursor()
+    cursor.execute('SELECT * FROM users;')
+    collects = []
+    for collect in cursor:
+        notice = f"name={collect[0]}; email={collect[1]}; " \
+            f"phone={collect[2]}; ssn={collect[3]}; " \
+            f"password={collect[4]}; ip={collect[5]}; " \
+            f"last_login={collect[6]}; user_agent={collect[7]}"
+        collects.append(notice)
+
+    logg = get_logger()
+    for coll in collects:
+        logg.INFO(coll)
+
+    cursor.close()
+    data.close()
+
+
+if __name__ == "__main__":
+    main()
