@@ -7,7 +7,7 @@ def hash_password(password: str) -> bytes:
     """
     Expect one string argument and returns a byte string.
     """
-    pw_encoded = password.encode('utf-8')
+    pw_encoded = password.encode()
     return bcrypt.hashpw(pw_encoded, bcrypt.gensalt())
 
 
