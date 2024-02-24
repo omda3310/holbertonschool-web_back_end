@@ -8,7 +8,8 @@ def hash_password(password: str) -> bytes:
     Expect one string argument and returns a byte string.
     """
     pw_encoded = password.encode()
-    return bcrypt.hashpw(pw_encoded, bcrypt.gensalt())
+    pw_gen = bcrypt.gensalt()
+    return bcrypt.hashpw(pw_encoded, pw_gen)
 
 
 def is_valid(hashed_password: bytes, password: str) -> bool:
