@@ -6,6 +6,7 @@ import bcrypt
 def hash_password(password: str) -> bytes:
     """
     Expect one string argument and returns a byte string.
+    Expect one string argument and returns a byte string.
     """
 
     salt = bcrypt.gensalt()
