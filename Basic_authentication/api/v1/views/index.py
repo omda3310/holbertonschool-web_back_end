@@ -33,4 +33,3 @@ def unauthorized() -> str:
       - the unauthorized error of the API
     """
     abort(401)
-  
