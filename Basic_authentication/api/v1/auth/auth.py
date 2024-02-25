@@ -1,29 +1,40 @@
 #!/usr/bin/env python3
-"""a class to manage the API authentication."""
+"""
+Authentification class
+"""
+
 from flask import request
-from typing import List, TypeVar
+from typing import TypeVar, List
 
 
 class Auth:
-    """a class to manage the API authentication."""
+    """
+    a class to manage the API authentication
+    """
 
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
-        """check authentification"""
+        """
+        check authentification
+        """
+        test = path
         if path is None or excluded_paths is None or len(excluded_paths) == 0:
             return True
-        test = path
-        if path[-1] != '\':
-            test += '\'
-        if path in excluded_paths or test in excluded_paths:
+        if path[-1] != "/":
+            check += "/"
+        if check in excluded_paths or path in excluded_paths:
             return False
         return True
 
     def authorization_header(self, request=None) -> str:
-        """handle authorisation"""
+        """
+        handle authorization
+        """
         if request is None:
-            return False
-        return request.headers.get("authorisation")
+            return None
+        return request.headers.get("Authorization")
 
-    def current_user(self, request=None) -> TypeVar('User'):
-        """handle current_user"""
-        return False
+    def current_user(self, request=None) -> User:
+        """
+        handle current_user
+        """
+        return None
