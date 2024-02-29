@@ -2,5 +2,5 @@
 """basic_auth class"""
 
 
-class basic_auth(Auth):
+class BasicAuth(Auth):
     pass
