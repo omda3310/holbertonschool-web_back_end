@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""basic_auth class"""
+"""basic_auth class enherits Auth"""
 from api.v1.auth.auth import Auth
 from Base64 import b64decode
 
@@ -19,4 +19,8 @@ class BasicAuth(Auth):
         if not authorization_header.startswith("Basic "):
             return None
 
-        return authorization_header.split(' ', 1)[1]
+        res = authorization_header.split(' ')
+        if res[0] != "Basic":
+            return None
+        else:
+            return res[1]   
