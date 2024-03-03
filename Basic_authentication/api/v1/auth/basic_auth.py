@@ -58,4 +58,3 @@ class BasicAuth(Auth):
             contain1 = decoded_base64_authorization_header.split(':', 1)[0]
             contain2 = decoded_base64_authorization_header.split(':', 1)[1]
             return contain1, contain2
-       
