@@ -77,8 +77,8 @@ class BasicAuth(Auth):
         except Exception:
             return None
 
-        for user in users:
-            if user.is_valid_password(user_pwd):
-                return user
+        for user1 in users:
+            if user1.is_valid_password(user_pwd):
+                return user1
 
         return None
