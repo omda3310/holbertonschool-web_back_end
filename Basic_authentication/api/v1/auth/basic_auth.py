@@ -59,8 +59,9 @@ class BasicAuth(Auth):
         contain2 = decoded_base64_authorization_header.split(':', 1)[1]
         return contain1, contain2
 
-    def user_object_from_credentials(self, user_email: str,
-                                     user_pwd: str) -> TypeVar('User'):
+    def user_object_from_credentials(self,
+                                     user_email: str, user_pwd: str
+                                     ) -> TypeVar('User'):
         """
         returns the User instance based on his email and password.
         """
