@@ -5,14 +5,18 @@ from Base64 import b64decode
 
 
 class BasicAuth(Auth):
-    """Class BasicAuth that inherits from Auth"""
+    """ Basic Authentication Class """
     def extract_base64_authorization_header(self,
                                             authorization_header: str) -> str:
-        """ the Base64 part of the Authorization header"""
+        """ Extract Base 64 Authorization """
+
         if authorization_header is None:
             return None
+
         if not isinstance(authorization_header, str):
             return None
+
         if not authorization_header.startswith("Basic "):
             return None
+
         return authorization_header.split(' ', 1)[1]
