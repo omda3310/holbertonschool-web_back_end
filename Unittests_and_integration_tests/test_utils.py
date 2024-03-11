@@ -55,4 +55,4 @@ class TestGetJson(TestCase):
             test_response = get_json(test_url)
             self.assertEqual(test_response, test_payload)
             # Test that the mocked get method was called exactly once
-            mock_returned.json.assert_colled_once()
+            mock_returned.json.assert_called_once()
