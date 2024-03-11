@@ -37,7 +37,7 @@ class TestAccessNestedMap(TestCase):
             self.assertEqual(ErrMessage, er.exception)
 
 
-class TestGetJson(unittest.TestCase):
+class TestGetJson(TestCase):
     """
     Mock HTTP calls
     """
