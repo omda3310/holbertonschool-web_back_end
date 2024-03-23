@@ -1,5 +1,10 @@
-export default function signUpUser(firstName, lastName) {
-    return Promise.resolve({
-      firstName, lastName,
+function signUpUser(firstName, lastName) {
+    return new Promise((resolve, reject) => {
+      resolve({
+        firstName: firstName,
+        lastName: lastName
+      });
     });
-  }
+}
+
+export default signUpUser;
