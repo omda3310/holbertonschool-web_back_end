@@ -1,5 +1,6 @@
 export default function cleanSet(set, startString) {
-  if (typeof set !== Object || startString === '' || typeof startString !== 'string') {
+  if (typeof set !== Object || startString === '' ||
+   typeof startString !== 'string') {
     return '';
   }
   const list_in = [];
