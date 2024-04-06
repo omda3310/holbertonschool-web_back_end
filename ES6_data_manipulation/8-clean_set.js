@@ -3,11 +3,11 @@ export default function cleanSet(set, startString) {
    typeof startString !== 'string') {
     return '';
   }
-  const list_in = [];
+  const lst = [];
   set.forEach(element => {
     if (element && element.startsWith(startString)) {
-      list_in.push(element.replace(startString, ''));
+      lst.push(element.replace(startString, ''));
     }    
   });
-  return list_in.join('-');
+  return lst.join('-');
 }
