@@ -5,7 +5,7 @@ export default function cleanSet(set, startString) {
   }
   const list_in = [];
   set.forEach(element => {
-    if(element && element.startsWith(startString)) {
+    if (element && element.startsWith(startString)) {
       list_in.push(element.replace(startString, ''));
     }    
   });
