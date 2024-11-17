@@ -26,23 +26,33 @@ def call_history(method: Callable) -> Callable:
     return wrapper
 
 
-def replay(method: Callable):
-    """ replay to display hstory of calls"""
-    self_ = method.__self__
-    stored_name = method.__qualname__
-    stored_key = self_.get(stored_name)
-    if stored_key:
-        times = self_.get_str(stored_key)
-        inputs = self_._redis.lrange(stored_name + ":inputs", 0, -1)
-        outputs = self_._redis.lrange(stored_name + ":outputs", 0, -1)
+def replay(fn: Callable):
+    """
+    Display the history of calls of a particular function
+    """
+    r = redis.Redis()
+    f_name = fn.__qualname__
+    n_calls = r.get(f_name)
+    try:
+        n_calls = n_calls.decode('utf-8')
+    except Exception:
+        n_calls = 0
+    print(f'{f_name} was called {n_calls} times:')
 
-        print(f"{stored_name} was called {times} times:")
-        zipvalues = zip(inputs, outputs)
-        result_list = list(zipvalues)
-        for k, v in result_list:
-            name = self_.get_str(k)
-            val = self_.get_str(v)
-            print(f"{stored_name}(*{name}) -> {val}")
+    ins = r.lrange(f_name + ":inputs", 0, -1)
+    outs = r.lrange(f_name + ":outputs", 0, -1)
+
+    for i, o in zip(ins, outs):
+        try:
+            i = i.decode('utf-8')
+        except Exception:
+            i = ""
+        try:
+            o = o.decode('utf-8')
+        except Exception:
+            o = ""
+
+        print(f'{f_name}(*{i}) -> {o}')
 
 
 def count_calls(method: Callable) -> Callable:
